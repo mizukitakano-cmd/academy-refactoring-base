@@ -6,7 +6,7 @@ public class VariableNaming {
      * パターン1:アンダーバー×
      */
     int firstNumber = 10;
-    int SecondNumber = 20;
+    int secondNumber = 20;
 
     /*
      * パターン2:変数の意味が分からない
@@ -17,10 +17,10 @@ public class VariableNaming {
     /*
      * パターン3:予約語を使用してるため×
      */
-    int sumUp = 100;
+    int totalNumber = 100;
 
-    int totalResult = firstNumber + SecondNumber;
-    int sum = price + count + sumUp;
+    int totalResult = firstNumber + secondNumber;
+    int sum = price + count + totalNumber;
 
     System.out.println(totalResult);
     System.out.println(sum);
