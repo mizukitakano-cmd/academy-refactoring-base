@@ -4,14 +4,14 @@ public class AssignmentTask {
   /*
    * パターン1:何のメッセージを取得したいか分からない。
    */
-  public void intoroduce(User user) {
+  public void greet(User user) {
     System.out.println("Hello, " + user.getName());
   }
 
   /*
    * パターン2:冗長な名前
    */
-  public void sayHello(User user) {
+  public void displayGreeting(User user) {
     System.out.println("Hello, " + user.getName());
   }
 
@@ -32,14 +32,14 @@ public class AssignmentTask {
   /*
    * パターン5:アンダーバーは使わない
    */
-  public void printUesrInfo(User user) {
+  public void printUserInfo(User user) {
     System.out.println(user.getName());
   }
 
   /*
    * パターン6:予約語をつかってる
    */
-  public User createNewUser(String name) {
+  public User createUser(String name) {
     return new User(name);
   }
 
