@@ -17,10 +17,10 @@ public class VariableNaming {
     /*
      * パターン3:予約語を使用してるため×
      */
-    int totalNumber = 100;
+    int bonusPoint = 100;
 
     int totalResult = firstNumber + secondNumber;
-    int sum = price + count + totalNumber;
+    int sum = price + count + bonusPoint;
 
     System.out.println(totalResult);
     System.out.println(sum);

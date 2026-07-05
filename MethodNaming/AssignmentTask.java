@@ -4,7 +4,7 @@ public class AssignmentTask {
   /*
    * パターン1:何のメッセージを取得したいか分からない。
    */
-  public void greet(User user) {
+  public void printGreeting(User user) {
     System.out.println("Hello, " + user.getName());
   }
 
