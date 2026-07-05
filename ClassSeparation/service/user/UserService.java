@@ -5,6 +5,7 @@ import java.util.List;
 
 
 public class UserService {
+  
 
     private final UserRegistrationService registrationService;
     private final UserDeactivateService deactivateService;
@@ -30,7 +31,7 @@ public class UserService {
       return searchService.existsByEmail(email);
     }
 
-    public void withdraw(Long userId) {
+    public void deactivate(Long userId) {
       deactivateService.deactivate(userId);
     }
 }

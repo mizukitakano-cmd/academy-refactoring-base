@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 public class UserAuthenticationService<UserMapper> {
+    
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 

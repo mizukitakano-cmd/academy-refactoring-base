@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 public class UserSearchService {
+    
     private final UserMapper userMapper;
 
     public UserSearchService(UserMapper userMapper) {
