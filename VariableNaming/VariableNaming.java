@@ -3,26 +3,26 @@ public class VariableNaming {
 
   public void calculateNumbers() {
     /*
-     * パターン1
+     * パターン1:アンダーバー×
      */
-    int first_number = 10;
-    int Second_Number = 20;
+    int firstNumber = 10;
+    int secondNumber = 20;
 
     /*
-     * パターン2
+     * パターン2:変数の意味が分からない
      */
-    int a = 5;
-    int x = 3;
+    int price = 5;
+    int count = 3;
 
     /*
-     * パターン3
+     * パターン3:予約語を使用してるため×
      */
-    int return = 100;
+    int bonusPoint = 100;
 
-    int total_result = first_number + Second_Number;
-    int sum = a + x + return;
+    int totalResult = firstNumber + secondNumber;
+    int sum = price + count + bonusPoint;
 
-    System.out.println(total_result);
+    System.out.println(totalResult);
     System.out.println(sum);
   }
 }

@@ -2,51 +2,51 @@
 public class AssignmentTask {
 
   /*
-   * パターン1
+   * パターン1:何のメッセージを取得したいか分からない。
    */
-  public void userMessage(User user) {
+  public void printGreeting(User user) {
     System.out.println("Hello, " + user.getName());
   }
 
   /*
-   * パターン2
+   * パターン2:冗長な名前
    */
-  public void getUserMessageAndPrintItToTheConsoleWithHelloPrefixAndUserName(User user) {
+  public void displayGreeting(User user) {
     System.out.println("Hello, " + user.getName());
   }
 
   /*
-   * パターン3
+   * パターン3:動詞を使用しているが何の処理をしたいのか具体性が分からない。
    */
-  public void process(User user) {
+  public void printUserName(User user) {
     System.out.println(user.getName());
   }
 
   /*
-   * パターン4
+   * パターン4:returnを使用しているのでgetが抜けてる
    */
-  public String userName(User user) {
+  public String getUserName(User user) {
     return user.getName();
   }
 
   /*
-   * パターン5: 
+   * パターン5:アンダーバーは使わない
    */
-  public void print_user_info(User user) {
+  public void printUserInfo(User user) {
     System.out.println(user.getName());
   }
 
   /*
-   * パターン6
+   * パターン6:予約語をつかってる
    */
-  public User new(String name) {
+  public User createUser(String name) {
     return new User(name);
   }
 
   /*
-   * パターン7
+   * パターン7:動詞じゃなくて形容詞×
    */
-  public boolean active(User user) {
+  public boolean isActive(User user) {
     return user.isActive();
   }
 

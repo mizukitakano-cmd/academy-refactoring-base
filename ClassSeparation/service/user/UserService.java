@@ -1,66 +1,37 @@
 // 問3.以下のクラスを適切に分割してください。
+package ClassSeparation.service.user;
+
+import java.util.List;
+
+
 public class UserService {
+  
 
-  private final UserMapper userMapper;
-  private final PasswordEncoder passwordEncoder;
+    private final UserRegistrationService registrationService;
+    private final UserDeactivateService deactivateService;
+    private final UserAuthenticationService authenticationService;
+    private final UserSearchService searchService;
 
-  // ユーザー登録
-  public User register(UserRegistrationForm form) {
-    User existing = userMapper.findByEmail(form.getEmail());
-    if (existing != null) {
-      throw new IllegalArgumentException("既に登録されています");
+    public UserService(UserMapper userMapper, PasswordEncoder passwordEncoder) {
+      this.registrationService = new UserRegistrationService(userMapper, passwordEncoder);
+      this.deactivateService = new UserDeactivateService(userMapper);
+      this.authenticationService = new UserAuthenticationService(userMapper, passwordEncoder);
+      this.searchService = new UserSearchService(userMapper);
     }
 
-    User user = new User();
-    user.setName(form.getName());
-    user.setEmail(form.getEmail());
-    user.setPassword(passwordEncoder.encode(form.getPassword()));
-    userMapper.insert(user);
-
-    return userMapper.findById(user.getId());
-  }
-
-  // ログイン認証
-  public User authenticate(LoginForm form) {
-    User user = userMapper.findByEmail(form.getEmail());
-    if (user == null) {
-      throw new IllegalArgumentException("認証失敗");
+    public User authenticate(LoginForm form) {
+      return authenticationService.authenticate(form);
     }
 
-    if (!passwordEncoder.matches(form.getPassword(), user.getPassword())) {
-      throw new IllegalArgumentException("認証失敗");
+    public List<User> getActiveUsers() {
+      return searchService.getActiveUsers();
     }
 
-    return user;
-  }
-
-  // ユーザー一覧取得
-  public List<User> getActiveUsers() {
-    List<User> users = userMapper.findAll();
-    List<User> result = new ArrayList<>();
-
-    for (User user : users) {
-      if (!user.isDeleted()) {
-        result.add(user);
-      }
-    }
-    return result;
-  }
-
-  // ユーザー退会
-  public void deactivateUser(Long userId) {
-    User user = userMapper.findById(userId);
-    if (user == null) {
-      throw new IllegalArgumentException("存在しません");
+    public boolean existsByEmail(String email) {
+      return searchService.existsByEmail(email);
     }
 
-    user.setDeleted(true);
-    userMapper.update(user);
-  }
-
-  // メール存在チェック
-  public boolean existsByEmail(String email) {
-    return userMapper.findByEmail(email) != null;
-  }
+    public void deactivate(Long userId) {
+      deactivateService.deactivate(userId);
+    }
 }
-
