@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 
 public class UserDeactivateService {
+
+    
     
     // ユーザー退会
-    public void withdraw(Long userId) {
+    public void deactivate(Long userId) {
     User user = userMapper.findById(userId);
     if (user == null) {
         throw new IllegalArgumentException("存在しません");
